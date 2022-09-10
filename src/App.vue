@@ -26,9 +26,10 @@ export default {
 
 <style>
   .main {
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: repeat(2, 20em) 30em 1fr;
-    grid-template-rows: repeat(3, 20em);
+    grid-template-columns: repeat(5, 5em) repeat(3, 24em);
+    grid-template-rows: repeat(5,10em) minmax(5em, auto);
   }
 
 
