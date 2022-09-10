@@ -1,27 +1,34 @@
 <template>
   <v-app>
     <v-main class="main">
-      <CardDisplayVue/>
-      <CardInputVue/>
+      <CardDisplayVue 
+        :number-card="numberCard"
+        :name-card="nameCard"
+        :month-card="monthCard"
+        :year-card="yearCard"
+        :secret-card="secretCard"
+        />
+      <CardInputVue 
+        @change-number-emit="(num) => numberCard = num"
+        @change-name-emit="(name) => nameCard = name"
+        @change-month-emit="(month) => monthCard = month"
+        @change-year-emit="(year) => yearCard = year"
+        @change-secret-emit="(secret) => secretCard = secret"
+        />
     </v-main>
   </v-app>
 </template>
 
-<script>
+<script setup>
 import CardInputVue from './components/CardInput.vue';
 import CardDisplayVue from './components/CardDisplay.vue';
+import { ref } from 'vue';
 
-export default {
-  name: 'App',
-
-  components: {
-    CardInputVue, CardDisplayVue
-  },
-
-  data: () => ({
-    //
-  }),
-}
+const numberCard = ref(0);
+const nameCard = ref('');
+const monthCard = ref(0);
+const yearCard = ref(0);
+const secretCard = ref(0);
 </script>
 
 <style>
