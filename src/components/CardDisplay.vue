@@ -3,7 +3,7 @@
         <div class="card-front">
             <img src="../assets/images/card-logo.svg">
             <v-container class="card-text flex flex-column align-center">
-                <p class="ff-serif fw-500 text-white fs-500 letter-spacing-1"> {{numberCard || '0000 0000 0000 0000'}}</p>
+                <p class="ff-serif fw-500 text-white fs-500 letter-spacing-1 uppercase"> {{numberCard || '0000 0000 0000 0000'}}</p>
                 <div class="w-100 flex align-flex-end justify-space-around" style="--gap: 12rem; height: 3rem;">
                     <p class="ff-serif fw-500 text-lg-violet fs-200 uppercase letter-spacing-3"> {{ nameCard || 'Jane Appleseed'}}</p>
                     <p class="ff-serif fw-500 text-lg-violet fs-200"> {{ monthCard || '00' }}/{{ yearCard || '00'}}</p>
@@ -17,11 +17,11 @@
 
 <script setup>
 const props = defineProps({
-  numberCard: Number,
+  numberCard: String,
   nameCard: String,
-  monthCard: Number,
-  yearCard: Number,
-  secretCard: Number,
+  monthCard: String,
+  yearCard: String,
+  secretCard: String,
 })
 
 </script>
@@ -30,13 +30,13 @@ const props = defineProps({
 <style>
     .left {
         grid-column: 1 / 7;
-        grid-row: 1 / -1;
+        grid-row: 1 / 7;
         background-image: url(../assets/images/bg-main-desktop.png);
     }
 
     .card-front {
         aspect-ratio: 2 / 1.09; /* computed height will be 133.33px, which is width/aspect-ratio */
-        width: 447.69px;
+        width: 446px;
         border-radius: 4%;
         background-repeat: no-repeat;
         background-image: url(../assets/images/bg-card-front.png);
@@ -44,6 +44,7 @@ const props = defineProps({
         grid-row: 2/3;
         display: grid;
         grid-template-rows: repeat(5,1fr);
+        box-shadow: 3px 3px 10px hsl(278, 68%, 11%);
     }
 
     .card-front img {
@@ -58,7 +59,7 @@ const props = defineProps({
 
     .card-back {
         aspect-ratio: 2 / 1.09; /* computed height will be 133.33px, which is width/aspect-ratio */
-        width: 447.69px;
+        width: 446px;
         border-radius: 4%;
         background-repeat: no-repeat;
         background-image: url(../assets/images/bg-card-back.png);
@@ -68,6 +69,7 @@ const props = defineProps({
         grid-template-rows: repeat(5,1fr);
         justify-content: end;
         align-items: center;
+        box-shadow: 3px 3px 10px hsl(279, 6%, 55%);
     }
 
     .card-back p {
